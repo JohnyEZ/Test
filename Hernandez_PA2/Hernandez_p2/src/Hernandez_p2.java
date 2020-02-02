@@ -12,7 +12,7 @@ public class Hernandez_p2 {
 			double centimeters = sc.nextDouble();
 			System.out.println("Input your weight in kilograms: ");
 			Double kilograms = sc.nextDouble();
-			bmi = calculateBmiForStormcloaks(centimeters, kilograms);
+			bmi = calculateBmiMetric(centimeters, kilograms);
 		}
 		else if (mode.equals("imperial")) {
 			System.out.println("Input the feet part of your height: ");
@@ -21,7 +21,7 @@ public class Hernandez_p2 {
 			int inches = sc.nextInt();
 			System.out.println("Input your weight in pounds: ");
 			Double pounds = sc.nextDouble();
-			bmi = calculateBmiForImperials(feet, inches, pounds);
+			bmi = calculateBmiImperial(feet, inches, pounds);
 		}
 		else {
 			sc.close();
@@ -29,18 +29,18 @@ public class Hernandez_p2 {
 		}
 		System.out.println("BMI Categories:\n" +
 				"Underweight = <18.5\n" +
-				"Normal weight = 18.5–24.9\n" +
-				"Overweight = 25–29.9\n" +
+				"Normal weight = 18.5-24.9\n" +
+				"Overweight = 25-29.9\n" +
 				"Obese = 30+");
 		System.out.println("\nYour BMI is: " + bmi);
 		sc.close();
 	}
 
-	private static double calculateBmiForStormcloaks(double cm, double kg) {
+	private static double calculateBmiMetric(double cm, double kg) {
 		return kg/Math.pow(cm/100, 2);
 	}
 
-	private static double calculateBmiForImperials(int feet, int inches, double pounds) {
+	private static double calculateBmiImperial(int feet, int inches, double pounds) {
 		return 703 * pounds / Math.pow(feet * 12 + inches, 2);
 	}
 }
